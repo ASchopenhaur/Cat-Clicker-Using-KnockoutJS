@@ -14,8 +14,13 @@
             <h2 id="cat-name"><span data-bind="text: catName"></span> </h2>
             <h3 id="cat-level"><span data-bind="text: catLevel"></span></h3>
             <div id="cat-count"><span data-bind="text: clicks"></span> </div>
-            <img id="cat-img" src="img/1413379559_412a540d29_z.jpg" alt="cute cat">
-
+            <div class = "img-container">
+                <img id="cat-img" src="img/1413379559_412a540d29_z.jpg" alt="cute cat">
+            </div>
+        </div>
+        <h4>Nicknames:</h4>
+        <div id="nickNames" data-bind="foreach: nickNames">
+            <div data-bind="text: $data"></div>
         </div>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>

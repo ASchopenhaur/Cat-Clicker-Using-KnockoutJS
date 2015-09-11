@@ -4,8 +4,27 @@
 }
 .container {
 	display: flex;
+	flex-flow: column;
+}
+
+h3 {
+	margin-top: 0px;
+	margin-bottom: 5px;
+}
+
+h4 {
+	margin-top: 5px;
+	margin-bottom: 2px;
 }
 
 img {
 	width: 80%;
+}
+
+.img-container {
+	width: 100%;
+}
+
+#nick-names {
+	width: 100%;
 }

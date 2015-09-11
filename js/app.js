@@ -2,8 +2,15 @@
 
 function ViewModel() {
 	self = this;
-	self.catName = ko.observable('Whiskers'),
-	self.clicks = ko.observable(0),
+	self.catName = ko.observable('Whiskers');
+	self.nickNames = ko.observableArray([
+		"PussNBoots",
+		"Little Leon",
+		"Mr. Mice Muncher",
+		"Highbrow Harry",
+		"Stoic Stanley"
+	]);
+	self.clicks = ko.observable(0);
 	self.addAClick = function(){
 		self.clicks(self.clicks()+1);
 	};
@@ -16,12 +23,12 @@ function ViewModel() {
 		if(self.clicks() > 16 && self.clicks() < 26){return level + "Fullgrown Feline";}
 		if(self.clicks() > 25 && self.clicks() < 35){return level + "Middle-Aged Meowster";}
 		if(self.clicks() > 34) {return level + "Old Hairball";}
-	})
+	});
 }
 
 $(function() {
 	var myViewModel = new ViewModel();
-	ko.applyBindings(ViewModel);
+	ko.applyBindings(myViewModel);
 
 	$("img").click(function(){
 		myViewModel.addAClick();
