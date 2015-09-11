@@ -1,17 +1,11 @@
 
 
-var Cat = function() {
+var Cat = function(data) {
 	self = this;
-	self.clicks = ko.observable(0);
-	self.catName = ko.observable('Whiskers');
-	self.imgSrc = ko.observable("img/1413379559_412a540d29_z.jpg")
-	self.nickNames = ko.observableArray([
-		"PussNBoots",
-		"Little Leon",
-		"Mr. Mice Muncher",
-		"Highbrow Harry",
-		"Stoic Stanley"
-	]);
+	self.clicks = ko.observable(data.clicks);
+	self.catName = ko.observable(data.name);
+	self.imgSrc = ko.observable(data.imgSrc)
+	self.nickNames = ko.observableArray(data.nickNames);
 	
 	self.catLevel = ko.computed(function(){
 		var level = "Level: ";
@@ -27,9 +21,20 @@ var Cat = function() {
 
 var ViewModel = function() {
 	var self = this;
-	self.currentCat = ko.observable( new Cat() );
+
+	self.currentCat = ko.observable( new Cat({
+		clicks: 0,
+		name: "Whisters",
+		imgSrc: "img/1413379559_412a540d29_z.jpg",
+		nickNames: ["PussNBoots",
+					"Little Leon",
+					"Mr. Mice Muncher",
+					"Highbrow Harry",
+					"Stoic Stanley"]
+		}) 
+	);
+
 	self.addAClick = function(){
-		self.counter++
 		self.currentCat().clicks(self.currentCat().clicks() + 1 );
 	};
 }
