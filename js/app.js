@@ -1,8 +1,10 @@
 
 
-function ViewModel() {
+function Cat() {
 	self = this;
+	self.clicks = ko.observable(0);
 	self.catName = ko.observable('Whiskers');
+	self.imgSrc = ko.observable("img/1413379559_412a540d29_z.jpg")
 	self.nickNames = ko.observableArray([
 		"PussNBoots",
 		"Little Leon",
@@ -10,10 +12,7 @@ function ViewModel() {
 		"Highbrow Harry",
 		"Stoic Stanley"
 	]);
-	self.clicks = ko.observable(0);
-	self.addAClick = function(){
-		self.clicks(self.clicks()+1);
-	};
+	
 	self.catLevel = ko.computed(function(){
 		var level = "Level: ";
 		var clicks = self.clicks();
@@ -26,13 +25,16 @@ function ViewModel() {
 	});
 }
 
+function ViewModel() {
+	this.currentCat = ko.observable(new Cat());
+	this.addAClick = function(){
+		this.currentCat().clicks(this.currentCat().clicks()+1);
+	};
+}
+
 $(function() {
 	var myViewModel = new ViewModel();
 	ko.applyBindings(myViewModel);
-
-	$("img").click(function(){
-		myViewModel.addAClick();
-	});
 
 });
 

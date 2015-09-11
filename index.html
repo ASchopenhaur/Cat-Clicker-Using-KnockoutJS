@@ -11,15 +11,16 @@
         <ul id="cat-list"></ul>
         <div id="cat">
 
-            <h2 id="cat-name"><span data-bind="text: catName"></span> </h2>
-            <h3 id="cat-level"><span data-bind="text: catLevel"></span></h3>
-            <div id="cat-count"><span data-bind="text: clicks"></span> </div>
+            <h2 id="cat-name"><span data-bind="text: currentCat().catName"></span> </h2>
+            <h3 id="cat-level"><span data-bind="text: currentCat().catLevel"></span></h3>
+            <div id="cat-count"><span data-bind="text: currentCat().clicks"></span> </div>
             <div class = "img-container">
-                <img id="cat-img" src="img/1413379559_412a540d29_z.jpg" alt="cute cat">
+                <img id="cat-img" src="" alt="cute cat" data-bind="click: addAClick, 
+                        attr: {src: currentCat().imgSrc}">
             </div>
         </div>
         <h4>Nicknames:</h4>
-        <div id="nickNames" data-bind="foreach: nickNames">
+        <div id="nickNames" data-bind="foreach: currentCat().nickNames">
             <div data-bind="text: $data"></div>
         </div>
     </div>
