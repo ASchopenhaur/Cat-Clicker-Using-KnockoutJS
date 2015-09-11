@@ -1,6 +1,6 @@
 
 
-function Cat() {
+var Cat = function() {
 	self = this;
 	self.clicks = ko.observable(0);
 	self.catName = ko.observable('Whiskers');
@@ -25,16 +25,18 @@ function Cat() {
 	});
 }
 
-function ViewModel() {
-	this.currentCat = ko.observable(new Cat());
-	this.addAClick = function(){
-		this.currentCat().clicks(this.currentCat().clicks()+1);
+var ViewModel = function() {
+	var self = this;
+	self.currentCat = ko.observable( new Cat() );
+	self.addAClick = function(){
+		self.counter++
+		self.currentCat().clicks(self.currentCat().clicks() + 1 );
 	};
 }
 
 $(function() {
-	var myViewModel = new ViewModel();
-	ko.applyBindings(myViewModel);
+
+	ko.applyBindings(new ViewModel());
 
 });
 
