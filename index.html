@@ -7,8 +7,14 @@
     <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
-    <div class="container" data-bind="with: currentCat">
-        <ul id="cat-list"></ul>
+
+    <h2>Cats:</h2>
+    <div class="cat-list" >
+        <ul data-bind="foreach: catList">
+            <li data-bind="text: $data.catName, click: $parent.changeCat"></li>
+        </ul>
+    </div>
+    <div class="current-cat-container" data-bind="with: currentCat">
         <div id="cat" >
 
             <h2 id="cat-name"><span data-bind="text: catName"></span> </h2>

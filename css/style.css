@@ -1,10 +1,27 @@
 
-#cat-name {
-	margin-bottom: 5px;
+.cat-list ul {
+	margin: 0px 0px 20px 0px;
+	padding: 0;
+	list-style-type: none;
 }
-.container {
+
+.cat-list ul li {
+	display: inline;
+	margin-right: 10px;
+	font-size: 1.2em;
+}
+
+#cat-name {
+	margin:0px 0px 5px 0px;
+}
+
+.current-cat-container {
 	display: flex;
 	flex-flow: column;
+}
+
+h2 {
+	margin: 20px 0px 0px 0px;
 }
 
 h3 {
